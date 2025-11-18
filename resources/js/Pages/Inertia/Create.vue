@@ -1,6 +1,7 @@
 <script setup>
 import { Inertia } from '@inertiajs/inertia';//LaravelとVue.jsをつなぐ便利機能を呼び出す
-import { reactive } from 'vue'//オブジェクト全体をリアクティブにする
+import { reactive } from 'vue';//オブジェクト全体をリアクティブにする
+import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 
 defineProps({
     errors:Object
@@ -17,6 +18,7 @@ const submitFunction = () =>{
 </script>
 
 <template>
+    <BreezeValidationErrors :errors="errors" />
     <form @submit.prevent="submitFunction">
         <input type="text" name="title" v-model="form.title"><br>
         <div v-if="errors.title">{{errors.title}}</div>

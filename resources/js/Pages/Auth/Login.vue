@@ -6,10 +6,13 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
+
 
 defineProps({
     canResetPassword: Boolean,
     status: String,
+    errors:Object
 });
 
 const form = useForm({
@@ -28,6 +31,7 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Log in" />
+        <BreezeValidationErrors :errors="errors" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}

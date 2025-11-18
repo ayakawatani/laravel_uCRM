@@ -36,7 +36,7 @@ class InertiaTestController extends Controller
 
         $inertiaTest =new InertiaTest;
         $inertiaTest->title = $request->title;
-        $inertiaTest->content = $request->content;
+        $inertiaTest->content = $request->getContent();
         $inertiaTest->save();
         
         return to_route('inertia.index')
